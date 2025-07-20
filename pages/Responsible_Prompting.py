@@ -1,7 +1,18 @@
 """Responsible Prompting page for prompt quality feedback."""
 
 import streamlit as st
+import os
 from services.prompt_service import get_scenario, analyze_prompt_quality, get_simulated_response, SCENARIOS
+
+# Load custom CSS
+def load_css():
+    css_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), ".streamlit", "style.css")
+    if os.path.exists(css_file):
+        with open(css_file) as f:
+            st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+# Load custom CSS
+load_css()
 
 st.set_page_config(page_title="Responsible Prompting", page_icon="🚀")
 st.title("🚀 Responsible Prompt Generation")
@@ -27,9 +38,12 @@ if selected_key:
 
             st.subheader("Feedback on Your Prompt:")
             for item in feedback_list:
-                st.success(f"✅ {item}") if "**Good!**" in item else st.warning(f"💡 {item}")
+                if "**Good!**" in item:
+                    st.success(f"✅ {item}")
+                else:
+                    st.warning(f"💡 {item}")
             
-            st.progress(quality_score / 5.0)
-            st.caption(f"Prompt Quality Score: {quality_score}/5")
+            st.progress(quality_score / 10.0)  # Updated for new max score of 10
+            st.caption(f"Prompt Quality Score: {quality_score}/10")
         else:
             st.error("Please write a prompt first.")

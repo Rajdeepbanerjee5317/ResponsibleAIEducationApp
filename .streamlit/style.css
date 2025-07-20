@@ -1,0 +1,55 @@
+/* Increase base font size throughout the app */
+html, body, [class*="css"] {
+    font-size: 20px !important;
+}
+
+/* Make headers larger */
+h1 {
+    font-size: 3rem !important;
+}
+
+h2, .stSubheader {
+    font-size: 2.5rem !important;
+}
+
+h3 {
+    font-size: 2rem !important;
+}
+
+/* Increase size of buttons and inputs */
+.stButton > button {
+    font-size: 1.3rem !important;
+    padding: 0.7rem 1.2rem !important;
+}
+
+/* Make text areas and inputs larger */
+.stTextArea textarea, .stTextInput input {
+    font-size: 1.3rem !important;
+    line-height: 1.6 !important;
+}
+
+/* Increase size of multiselect and selectbox */
+.stSelectbox, .stMultiSelect {
+    font-size: 1.1rem !important;
+}
+
+/* Make expander headers larger */
+.streamlit-expanderHeader {
+    font-size: 1.2rem !important;
+}
+
+/* Increase size of success and warning messages */
+.stSuccess, .stWarning, .stError, .stInfo {
+    font-size: 1.3rem !important;
+    padding: 1.2rem !important;
+}
+
+/* Make sidebar text larger */
+.sidebar .sidebar-content {
+    font-size: 1.1rem !important;
+}
+
+/* Increase size of captions */
+.stCaption {
+    font-size: 1rem !important;
+}
